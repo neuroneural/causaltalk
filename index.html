@@ -2,34 +2,34 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <link href="css/fontawesome-free-6.2.1-web/css/all.css" rel="stylesheet">
+	<link href="css/fontawesome-free-6.2.1-web/css/all.css" rel="stylesheet">
 
-  <script src="lib/colorbrewer.v1.min.js" charset="utf-8"></script>
-  <script src="lib/colorStringStandalone.js" charset="utf-8"></script>
-  <script type="text/javascript" src="lib/jquery-2.2.4.min.js"></script>
-  <!-- Load d3.js -->
-  <script src="https://d3js.org/d3.v7.js"></script>
+	<script src="lib/colorbrewer.v1.min.js" charset="utf-8"></script>
+	<script src="lib/colorStringStandalone.js" charset="utf-8"></script>
+	<script type="text/javascript" src="lib/jquery-2.2.4.min.js"></script>
+	<!-- Load d3.js -->
+	<script src="https://d3js.org/d3.v7.js"></script>
 
-  <title>Causality Between the Frames</title>
+	<title>Causality Between the Frames</title>
 
-  <meta name="description" content="Causal Discovery in Multivariate Time Series">
-  <meta name="author" content="Sergey M Plis">
+	<meta name="description" content="Causal Discovery in Multivariate Time Series">
+	<meta name="author" content="Sergey M Plis">
 
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
 
 
-  <link rel="stylesheet" href="dist/reset.css">
-  <link rel="stylesheet" href="dist/reveal.css">
-  <!-- Code syntax highlighting -->
-  <link rel="stylesheet" href="plugin/highlight/atom-one-light.css" id="highlight-theme">
-  <!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
-  <link rel="stylesheet" href="css/custom.css?v=4">
-  <link rel="stylesheet" href="dist/theme/aml.css" id="theme">
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="plugin/highlight/atom-one-light.css" id="highlight-theme">
+	<!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
+	<link rel="stylesheet" href="css/custom.css?v=4">
+	<link rel="stylesheet" href="dist/theme/aml.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement('link');
@@ -44,52 +44,572 @@
 
 
 <body>
-  <div class="reveal">
-    <div class="ocean">
-      <div class="wave"></div>
-      <div class="wave"></div>
-    </div>
-    <!-- In between the <div="reveal"> and the <div class="slides">-->
-    <!-- <header style="position: absolute; top: 10px; left: 100px; z-index: 500; font-size:100px;background-color: rgba(0,0,0,0); text-align: center !important"></header>  -->
-    <!-- In between the <div="reveal"> and the <div class="slides">-->
-    <!-- Any section element inside of this container is displayed as a slide #93a1a1 -->
-    <div class="slides">
-      <section data-state="ocean-view">
-        <section data-background="figures/symposium.png" data-background-size="cover" data-background-opacity=0.15
-          class="desaturated-bg">
-          <p>
-          <h1 style="width: 120%; margin-left: -10%; white-space: nowrap;">Causality Between the Frames</h1>
-          <h2 style="color: #586e75; margin-top: 20px;">Causal Discovery in Multivariate Time Series</h2>
+	<div class="reveal">
+		<div class="ocean">
+			<div class="wave"></div>
+			<div class="wave"></div>
+		</div>
+		<!-- In between the <div="reveal"> and the <div class="slides">-->
+		<!-- <header style="position: absolute; top: 10px; left: 100px; z-index: 500; font-size:100px;background-color: rgba(0,0,0,0); text-align: center !important"></header>  -->
+		<!-- In between the <div="reveal"> and the <div class="slides">-->
+		<!-- Any section element inside of this container is displayed as a slide #93a1a1 -->
+		<div class="slides">
+			<section>
+				<section>
+					<p>
+					<h1 style="white-space: nowrap; position: relative; left: 30%; transform: translateX(-50%);">
+						Causality Between
+						the Frames</h1>
+					<h2 style="white-space: nowrap; color: #586e75; margin-top: 20px; position: relative;  left: -5%;">
+						Causal Discovery in Multivariate Time Series</h2>
 
 
-          <div>
-            Sergey Plis
-          </div>
-          <p>
+					<div>
+						Sergey Plis
+					</div>
+					<p>
 
-            <img style="border:0; position: relative; z-index: 10; box-shadow: 0px 0px 0px
+						<img style="border:0; position: relative; z-index: 10; box-shadow: 0px 0px 0px
                                 rgba(150, 150, 255, 0.8);" height="200" src="figures/neuroneural_logo.png"
-              alt="Neuroneural">
-        </section>
-      </section>
+							alt="Neuroneural">
+				</section>
+				<section>
+					<h2>outline</h2>
+					<ol>
+						<li> Problem Definition
+						<li> Manual Phase
+						<li> ASP Phase
+						<li> Deliberate Undersampling
+					</ol>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Problem definition</h1>
+					<div>
+						<img style="width: 200px; box-shadow: 0px 0px 0px
+                                                      rgba(150, 150, 255,0.8);
+                                            border:0;" src="figures/DavidDanks.jpeg" alt="David Danks">
+					</div>
+				</section>
 
-    </div>
+				<section>
+					<h3>Multimodal Causal Learning?</h3>
+					<img style="border:0; box-shadow: 0px 0px 0px
+							  rgba(150, 150, 255, 0.8);" width="250" class="stretch" src="figures/jointgraph.png" alt="latent">
+					<p><br>
+					<div class='footer'>
+						Danks D, Glymour C, Tillman RE. Integrating locally
+						learned causal structures with overlapping
+						variables. NIPS 2009
+					</div>
+				</section>
 
-  </div>
+				<section>
+					<h3>are they even compatible!?</h3>
+					<img style="border:0; box-shadow: 0px 0px 0px
+							  rgba(150, 150, 255, 0.8);" width="250" class="stretch" src="figures/M87174327.png" alt="latent">
+					<p><br>
+					<div class='footer'>
+						Plis et al. Effective connectivity analysis of
+						fMRI and MEG data collected under identical
+						paradigms. Computers in biology and
+						medicine. 2011
+					</div>
+				</section>
 
-  <script src="dist/reveal.js"></script>
+				<section>
+					<h3>the situation</h3>
+					Causal timescale $\ne$ Measurement timescale
+					<br>
+					<div style="width:800px;margin-left:auto;margin-right:auto;">
+						<div style="float:left; width:200 px"></div>
+						<div style="float:left; width:250 px">
+							<img style="border:0; box-shadow: 0px 0px 0px
+								  rgba(150, 150, 255, 0.8);" width="250" src="figures/neuron.png" alt="neuron">
+							<br>
+							$\approx100ms$
+						</div>
+						<div style="float:left; width:250 px">
+							<img style="border:0; box-shadow: 0px 0px 0px
+								  rgba(150, 150, 255, 0.8);" width="250" src="figures/brainnet.png" alt="brain">
+							<br>
+							$???$
+						</div>
+						<div style="float:left; width:250 px">
+							<img style="border:0; box-shadow: 0px 0px 0px
+								  rgba(150, 150, 255, 0.8);" width="250" src="figures/fmri.png" alt="fmri">
+							<br>
+							$\approx2s$
+						</div>
 
-  <link rel="stylesheet" href="plugin/highlight/atom-one-light.css">
-  <script src="plugin/highlight/highlight.js"></script>
-  <script src="plugin/math/math.js"></script>
-  <script src="plugin/chalkboard/plugin.js"></script>
-  <script src="plugin/notes/notes.js"></script>
-  <script src="plugin/zoom/zoom.js"></script>
-  <script src="plugin/fullscreen/fullscreen.js"></script>
-  <script src="plugin/verticator/verticator.js"></script>
-  <script src="plugin/verticator/verticator.js"></script>
-  <link rel="stylesheet" href="plugin/verticator/verticator.css">
-  <script src="plugin/menu/menu.js"></script>
+						<div style="clear:both"></div>
+					</div>
+					<br>
+					What causal inferences can be made in this situation?
+				</section>
+
+				<section>
+					<h3>two challenges</h3>
+					<ol>
+						<li style="text-align:left" class="fragment roll-in"><b>Forwards
+								inference</b>: Given a causal structure at causal
+							timescale, what is the implied structure at
+							(undersampled) measurement timescale? </li>
+						<li style="text-align:left" class="fragment roll-in"><b>Backwards
+								inference</b>: Given inferred causal structure at
+							measurement timescale (with unknown
+							undersampling), what structures at causal
+							timescale are possible?</li>
+					</ol>
+				</section>
+				<section>
+					<h1>Forward problem</h1>
+					<p><br>
+					<div class='footer'>
+						Danks, D. and Plis, S. Learning causal structure
+						from undersampled time series. NIPS workshop 2013
+					</div>
+				</section>
+
+				<section>
+					<h3>representation</h3>
+					<ul>
+						<li>Dynamic Bayesian Network (DBN)
+							<ul>
+								<li> causally sufficient
+								<li> first order Markov
+								<li> no isochronal edges</li>
+							</ul>
+						</li>
+					</ul>
+					<img class="stretch" style="border:0; box-shadow: 0px 0px 0px
+							rgba(150, 150, 255, 0.8);" width="800" src="figures/dbn_example.png" alt="loop">
+				</section>
+				<section>
+					<h3>undersampling effect</h3>
+					<img class="stretch" style="border:0; box-shadow: 0px 0px 0px
+											  rgba(150, 150, 255,
+											  0.8);" width="800" src="figures/undersamplingDBN.png" alt="loop">
+				</section>
+				<section>
+					<h2>A couple of results</h2>
+					<blockquote
+						style="background-color: #93a1a1; color: #fdf6e3; font-size: 42px; width: 100%; text-align: left;"
+						class="fragment roll-in reveal"><b>Lemma 1</b> For all $u$, ${\cal G}^u$ contains no directed
+						edges between variables at the same time step.
+					</blockquote>
+					<blockquote
+						style="background-color: #93a1a1; color: #fdf6e3; font-size: 42px; width: 100%; text-align: left;"
+						class="fragment roll-in reveal"><b>Lemma 2</b> If the Markov order of ${\cal G}^1$ is $1$, then
+						the Markov order of all ${\cal G}^u$ is also $1$ (relative to measurement at rate $u$).
+					</blockquote>
+				</section>
+
+				<section data-vertical-align-top>
+					<h2>Compressed Graph</h2>
+					<img style="border:0; box-shadow: 0px 0px 0px rgba(150, 150, 255, 1); width: 100%;"
+						src="figures/compressed_graphs_ICLR.svg" alt="Compressed graphs">
+				</section>
+
+				<section>
+					<h3>(better) representation</h3>
+					<div style="width:800
+							  px;margin-left:auto;margin-right:auto;">
+						<div style="float:left; width:350 px">
+							<img style="border:0; box-shadow: 0px 0px 0px
+								  rgba(150, 150, 255, 0.8);" width="350" src="figures/cg.png" alt="david">
+						</div>
+						<div style="float:left; width:100 px">
+							<p>
+							<p>
+							<p>
+							<p>
+								undersample
+						</div>
+						<div style="float:left; width:350 px">
+							<img style="border:0; box-shadow: 0px 0px 0px
+								  rgba(150, 150, 255, 0.8);" width="350" src="figures/cgu.png" alt="justin">
+						</div>
+
+						<div style="clear:both"></div>
+					</div>
+				</section>
+				<section>
+					<h3>simple loops</h3>
+					<img class="reveal" style="border:0; box-shadow: 0px 0px 0px
+							  rgba(150,            150,           255,
+					   0.8);margin-left:auto;margin-right:auto;" width="800" src="figures/simple_loops.png" alt="loop">
+				</section>
+				<section>
+					<h3>specific behavior: DAG</h3>
+					<img class="reveal" style="border:0; box-shadow: 0px 0px 0px
+							  rgba(150,            150,           255,
+					   0.8);margin-left:auto;margin-right:auto;" width="800" src="figures/dissolving.png" alt="loop">
+					<br>
+					<img class="reveal" style="border:0; box-shadow: 0px 0px 0px
+							  rgba(150,            150,           255,
+					   0.8);margin-left:auto;margin-right:auto;" width="800" src="figures/bidissolve.png" alt="loop">
+				</section>
+				<section>
+					<h3>Specific behavior: Superclique SCC</h3>
+					<img class="stretch" style="border:0; box-shadow: 0px 0px 0px
+								  rgba(150,
+						   150, 255,
+						   0.8);margin-left:auto;margin-right:auto;"
+						   width="800"
+						   src="figures/convergence.png"
+						   alt="loop">
+				</section>
+				<section data-vertical-align-top data-background="figures/oscillate.png" data-background-size="contain">
+				  <h3>Specific behavior: Oscillating SCC</h3>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Manual phase</h1>
+					<div>
+						<img style="width=100%; box-shadow: 0px 0px 0px
+                                            rgba(150, 150, 255,0.8);
+                                            border:0;" src="figures/undersampling_coauthors.jpg" alt="coauthors">
+
+					</div>
+				</section>
+				<section>
+					<h2>known undersampling rate</h2>
+					<p><br>
+					<div class="footer">
+						Plis S, Danks D, Yang J. Mesochronal structure
+						learning. UAI 2015
+					</div>
+				</section>
+
+				<section data-background-transition="zoom">
+					<h3>Virtual nodes</h3>
+					<img class="stretch" style="border:0; box-shadow: 0px 0px 0px
+							rgba(150, 150, 255, 0.8);" width="800" src="figures/edge_merging_table.png" alt="loop">
+				</section>
+
+				<section>
+					<h4>Conflict persistence</h4>
+					<div class="lemma" style="font-style:italic;text-align:justify">
+						conflicts persist
+					</div>
+					<div class="corollary">
+						${\cal{G}}^1 \text{ conflicts with } {\cal{H}}^u
+						\implies \forall {\cal G} \supseteq {\cal G}^1
+						\: {\cal{G}} \text{ conflicts
+						with } {\cal{H}}^u$
+					</div>
+				</section>
+
+				<section>
+					<h3>Search Tree</h3>
+					<img class="stretch" style="border:0; box-shadow: 0px 0px 0px
+							rgba(150, 150, 255, 0.8);" width="800" src="figures/edge_merging_tree.png" alt="loop">
+
+				</section>
+				<section>
+
+					The MSL algorithm is correct and complete
+
+					<p>
+					<p>
+					<p>
+					<div class="fragment" data-fragment-index="1" style="text-align: center;color: #990000;">
+						Unfortunately it is slow </div>
+				</section>
+				<section>
+					<img class="stretch" style="border:0; box-shadow:
+							0px  0px 0px  rgba(150,  150, 255,  0.8);" src="figures/edge_merging.png" border="0" width="800"
+						alt="Brain MRIs" />
+				</section>
+				<section>
+					<h3>computational complexity</h3>
+					<ul>
+						<li class="fragment roll-in"> $\{ m_1 , \dots , m_l \}$ - the sets of
+							virtual node identifications for each of the
+							edges or edge-pairs <!-- .element: class="fragment" data-fragment-index="1" -->
+						<li class="fragment roll-in"> $\prod_i^{l} \text{len}(m_i)$ - computational
+							complexity of using edge-pairs <!-- .element: class="fragment" data-fragment-index="2" -->
+						<li class="fragment roll-in"> $\text{len}$ - the number
+							of possible identifications for that particular edge
+							or edge-pair
+						<li class="fragment roll-in"> Computational advantage, expressed as a
+							log-ratio: $$ \log{r} = \sum_i^{l}
+							\log{\text{len}(m_i)} - e\log{n}. $$
+					</ul>
+				</section>
+
+				<section>
+					<img class="stretch" style="border:0; box-shadow: 0px 0px 0px
+							rgba(150, 150, 255, 0.8);" width="800" src="figures/nods.png" alt="loop">
+				</section>
+
+				<section>
+					<h3>still not fast enough</h3>
+					<ul>
+						<li> pre-computed $O(n^2)$ pruning data-structure
+						<li> employed additional constraints and observations
+					</ul>
+				</section>
+
+
+				<section>
+					<img class="stretch" style="border:0; box-shadow: 0px
+											0px 0px
+							rgba(150,  150,  255,  0.8);" width="800" src="figures/runtime_demo.png" alt="loop">
+				</section>
+
+				<section>
+					<h3>6-node graphs</h3>
+					<img class="stretch" style="border:0; box-shadow:
+											  0px 0px 0px
+											  rgba(150,    150,   255,
+					   0.8);" width="800" src="figures/6nodes_eq.png" alt="loop">
+				</section>
+
+				<section>
+					<h2>unknown undersampling rate</h2>
+					<p><br>
+					<div class="footer">
+						Plis S, Danks D, Freeman C, Calhoun V. Rate-agnostic
+						(causal) structure learning. NIPS 2015
+					</div>
+				</section>
+
+				<section>
+					<div class="theorem" style="font-style:italic;text-align:justify">
+						If ${\cal G}^{1} \subseteq {\cal{J}}^1$, then $\forall
+						u [ {\cal G}^{u} \subseteq {\cal{J}}^u]$
+					</div>
+					<div class="corollary" style="font-style:italic;text-align:justify">
+						If ${\cal G}^{u} \nsubseteq {\cal H}$, then $\forall
+						{\bf E} [ ( {\cal G}^{1}_{\bf E} )^u \nsubseteq {\cal
+						H} ]$
+					</div>
+					<div class="corollary" style="font-style:italic;text-align:justify"> If
+						$\forall u [ {\cal G}^{u} \nsubseteq {\cal H} ]$,
+						then $\forall {\bf E}, u [ ( {\cal G}^{1}_{\bf E}
+						)^u \nsubseteq {\cal H} ]$
+					</div>
+				</section>
+
+				<section data-background="figures/rasl1.png" data-background-transition="zoom"
+					data-background-size="contain">
+				</section>
+
+				<section data-background="figures/rasl_timing.png" data-background-transition="zoom"
+					data-background-size="contain">
+				</section>
+
+				<section data-background="figures/rasl_eq.png" data-background-transition="zoom"
+					data-background-size="contain">
+				</section>
+
+				<section>
+					<h3>Answer Set Programming</h3>
+					https://gitlab.com/undersampling/gunfolds
+					<img class="stretch" style="border:0; box-shadow:
+											  0px 0px 0px
+											  rgba(150,    150,   255,
+					   0.8);" width="900" src="figures/clingo.png" alt="loop">
+				</section>
+				<section data-background="figures/ASP.png" data-background-transition="zoom"
+					data-background-size="contain">
+					<p>
+					<p>
+					<p>
+					<p>
+					<p>
+					<p>
+						<span class="footer" style="font-size:16px;margin-top:30px;">
+							Hyttinen et al. A constraint optimization approach
+							to causal discovery from subsampled time series
+							data. International Journal of Approximate
+							Reasoning. 2017
+						</span>
+				</section>
+			</section>
+                        <section>
+                          <section>
+                            <h1>ASP phase</h1>
+                            		      <row>
+                        <col50>
+                          <img style="border:0; box-shadow: 0px 0px 0px rgba(150, 150, 255, 1); width: 50%;" src="figures/Sajad.jpeg" alt="Sajad"><br>
+                        </col50>
+                        <col50>
+                          <img style="border:0; box-shadow: 0px 0px 0px rgba(150, 150, 255, 1); width: 50%;" src="figures/DavidDanks.jpeg" alt="David"><br>
+                          </col50>
+                      </row>
+                          </section>
+                  <section>
+                    <img style="border:0; box-shadow: 0px 0px 0px rgba(150, 150, 255, 1); width: 150%;" src="figures/changes_on_undersampling_ICLR.svg" alt="Unrolling has a different sense">
+                    <h2  class="fragment roll-in" data-fragment-index="0" style="margin-top: -30px;">Equivalence Class</h2>
+                    <img style="border:0; box-shadow: 0px 0px 0px rgba(150, 150, 255, 1); width: 65%; margin-top: -25px;"  data-fragment-index="0" class="fragment roll-in" src="figures/eq_class_G4_ICLR.svg" alt="Equivalence class">
+                  </section>
+
+                  <section>
+                    <h2>Obtain the equivalence class</h2>
+                    <ul>
+                      <li class="fragment roll-in" style="list-style: none;">                     <blockquote style="background-color: #93a1a1; color: #fdf6e3; font-size: 42px; width: 120%; text-align: left; margin-left: -90px;" class="stretch"><b>Theorem</b> Deciding whether a consistent  ${\cal G}^1$ exists for a given $\mathcal{H}$ is NP-complete, for all undersampling rates $u\geq2$.
+                        </blockquote>
+                      <li class="fragment roll-in"><b>Parametrically:</b> <span style="font-size: 30pt;">M. Gong, K. Zhang, B. Schoelkopf, D. Tao, and P. Geiger. "Discovering temporal causal relations from subsampled data." ICML 2015.</span>
+                        <ul>
+                          <li class="fragment roll-in"> demonstrated on <mark>2</mark> random variables for fixed $u$
+                        </ul>
+                      <li class="fragment roll-in"><b>Non-Parametrically:</b> <span style="font-size: 30pt;">S. Plis, D. Danks, C. Freeman, and V. Calhoun. "Rate-agnostic (causal) structure learning". NIPS 2015.</span>
+                        <ul>
+                          <li class="fragment roll-in"> demonstrated on <mark>6</mark> random variables for all $u$
+                        </ul>
+                    </ul>
+                  </section>
+                  <section>
+                    <h2>we can handle</h2>
+                    <h1><mark>$\approx 100$</mark> variables</h1>
+                    <div class="footer">
+                      Abavisani, M., Danks, D., & Plis, S. M. (2023). GRACE-C: Generalized rate agnostic causal estimation via constraints. ICLR
+                    </div>
+                  </section>
+
+                  <section>
+                    <h2>What enabled this result</h2>
+                    <ul>
+                      <li class="fragment roll-in"> Use of Answer Set Programming
+                        <ul>
+                          <li style="list-style: none;"> <em>constraint satisfaction paradigm</em>
+                        </ul>
+                      <li class="fragment roll-in"> Exploiting Problem Structure
+                        <ul>
+                          <li style="list-style: none;"> <em>strongly connected components</em>
+                        </ul>
+                    </ul>
+                  </section>
+
+                  <section data-vertical-align-top data-background-size="contain" data-background="figures/RASLvsRASL.svg">
+                  </section>
+
+                  <section data-vertical-align-top data-background-size="contain" data-background="figures/sRASL_SCCsize.svg">
+                  </section>
+
+                  <section data-vertical-align-top data-background-size="contain" data-background="figures/SCCnoSCC.svg">
+                    <h2>if we exploit the SCC structure</h2>
+                  </section>
+
+                  <section data-vertical-align-top data-background-size="contain" data-background="figures/100nodeSCC.svg">
+                  </section>
+
+                  <section>
+                    <h2>Estimation errors</h2>
+                    <h4>(work in submission)</h4>
+                  </section>
+
+                  <section data-vertical-align-top data-background-size="contain" data-background="figures/rnr.png">
+                  </section>
+
+                  <section data-vertical-align-top data-background-size="contain" data-background="figures/edge_breaking.svg">
+                    <h3>Edge Breaking Experiment</h3>
+                  </section>
+
+                  <section data-vertical-align-top>
+                    <h3>Value-Add</h3>
+                    <img class="stretch" style="border:0; box-shadow:
+						0px 0px 0px
+											  rgba(150,    150,   255,
+					   0.8);" width="800" src="figures/rnr_value_add.svg" alt="loop">
+                  <div class="footer">
+                    Sanchez-Romero, R., Ramsey, J. D., Zhang, K., Glymour, M. R., Huang, B., and Glymour, C. Estimating feed-forward and feedback effective connections from fMRI time series: Assessments of statistical methods. Network Neuroscience, 3(2):274–306, 2019.
+                  </div>
+
+                  </section>
+
+                  <section data-vertical-align-top data-background-size="contain" data-background="figures/rnr_robustness.svg">
+                    <h3>Robustness</h3>
+                  </section>
+
+                  <section data-vertical-align-top data-background-size="contain" data-background="figures/salience.png">
+                    <h3>Salience Network (fMRI)</h3>
+                  </section>
+                        </section>
+                        <section>
+                          <section>
+                            <h1>deliberate undersampling</h1>
+                            <div>
+			      <img style="width: 200px; box-shadow: 0px 0px 0px
+                                          rgba(150, 150, 255,0.8);
+                                          border:0;" src="figures/Xenia.jpeg" alt="Ksenia Soloveva">
+			    </div>
+                          </section>
+                          <section data-background-size="contain" data-background="figures/du_eq_class.svg">
+                            <h3 style="margin-top:30px;">slower sampling and equivalence class size</h3>
+                          </section>
+
+                          <section data-vertical-align-top  data-background-size="contain" data-background="figures/venn_diagrams.svg">
+                            <h3>when slower data may help</h3>
+
+                            <div class="footer">
+                              Solovyeva K, Danks D, Abavisani M, Plis S. Causal Learning through Deliberate Undersampling. Proc Mach Learn Res. 2023 Apr;213:518-530. PMID: 38544679; PMCID: PMC10972601.
+                              </div>
+                          </section>
+
+                          <section data-vertical-align-top  data-background-size="contain" data-background="figures/du_gain.png">
+                          </section>
+
+                          <section>
+                            <h2>Let's test the theory</h2>
+			    <div>
+			      <img style="width: 200px; box-shadow: 0px 0px 0px
+                                          rgba(150, 150, 255,0.8);
+                                          border:0;" src="figures/Joanne.png" alt="Joanne Wardell">
+			    </div>                            
+                            
+                          </section>
+
+                          <section data-vertical-align-top>
+                            <row>
+                              <col50>
+                                <img class="stretch" style="border:0; box-shadow:
+						            0px 0px 0px
+							    rgba(150,    150,   255,
+					   0.8);" width="400" src="figures/du_components.png" alt="loop">
+                              </col50>
+                              <col50>
+                                <img class="stretch" style="border:0; box-shadow:
+						            0px 0px 0px
+							    rgba(150,    150,   255,
+					   0.8);" width="400" src="figures/du_diagram.png" alt="loop">
+                              </col50>
+                            </row>
+                          </section>
+                          <section data-vertical-align-top  data-background-size="contain" data-background="figures/du_anomaly.png">
+                          </section>
+
+                          <section data-vertical-align-top  data-background-size="contain" data-background="figures/du_gender.png">
+                          </section>
+                        </section>
+                        <section>
+                          <section>
+                            <h1>thank you!</h1>
+                          </section>
+                        </section>
+
+		</div>
+
+	</div>
+
+	<script src="dist/reveal.js"></script>
+
+	<link rel="stylesheet" href="plugin/highlight/atom-one-light.css">
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/zoom/zoom.js"></script>
+	<script src="plugin/fullscreen/fullscreen.js"></script>
+	<script src="plugin/verticator/verticator.js"></script>
+	<script src="plugin/verticator/verticator.js"></script>
+	<link rel="stylesheet" href="plugin/verticator/verticator.css">
+	<script src="plugin/menu/menu.js"></script>
 
   <script>
     // Full list of configuration options available at:
@@ -209,48 +729,47 @@
 
   </script>
 
-  <style type="text/css">
-    /* 1. Style header/footer <div> so they are positioned as desired. */
-    #header-left {
-      position: absolute;
-      top: 0%;
-      left: 0%;
-    }
+	<style type="text/css">
+		/* 1. Style header/footer <div> so they are positioned as desired. */
+		#header-left {
+			position: absolute;
+			top: 0%;
+			left: 0%;
+		}
 
-    #header-right {
-      position: absolute;
-      top: 0%;
-      right: 0%;
-    }
+		#header-right {
+			position: absolute;
+			top: 0%;
+			right: 0%;
+		}
 
-    #footer-left {
-      position: absolute;
-      bottom: 0%;
-      left: 0%;
-    }
-  </style>
+		#footer-left {
+			position: absolute;
+			bottom: 0%;
+			left: 0%;
+		}
+	</style>
 
-  <!-- // 2. Create hidden header/footer -->
-  <div id="hidden" style="display:none;">
-    <div id="header">
-      <div id="header-left">
-        <img style="border:0; box-shadow: 0px 0px 0px
-			      rgba(150, 150, 255,0.8);" width="150" src="figures/GSU.png" alt="GSU">
-      </div>
-      <div id="header-right">
-        <img style="border:0; box-shadow: 0px 0px 0px
+	<!-- // 2. Create hidden header/footer -->
+	<div id="hidden" style="display:none;">
+	  <div id="header">
+	    <div id="header-left">
+				<img style="border:0; box-shadow: 0px 0px 0px
+			                    rgba(150, 150, 255,0.8);" width="150" src="figures/GSU.png" alt="GSU">
+			</div>
+			<div id="header-right">
+				<img style="border:0; box-shadow: 0px 0px 0px
 			      rgba(150, 150, 255,0.8);" width="250" src="figures/TReNDS_logo_light.png" alt="TReNDS">
-        <!-- <img style="border:0; box-shadow: 0px 0px 0px -->
-        <!--             rgba(150, 150, 255, 0.8);" -->
-        <!--      width="100" -->
-        <!--      src="figures/neuroneural_logo.png" -->
-        <!--      alt="Neuroneural"> -->
-      </div>
-      <div id="footer-left">
-      </div>
-    </div>
-  </div>
-
+				<!-- <img style="border:0; box-shadow: 0px 0px 0px -->
+				<!--             rgba(150, 150, 255, 0.8);" -->
+				<!--      width="100" -->
+				<!--      src="figures/neuroneural_logo.png" -->
+				<!--      alt="Neuroneural"> -->
+			</div>
+			<div id="footer-left">
+			</div>
+		</div>
+	</div>
 
   <script type="text/javascript">
     // 3. On Reveal.js ready event, copy header/footer <div> into each `.slide-background` <div>
