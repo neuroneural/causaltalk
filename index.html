@@ -264,6 +264,12 @@
 				<section data-vertical-align-top data-background="figures/oscillate.png" data-background-size="contain">
 				  <h3>Specific behavior: Oscillating SCC</h3>
 				</section>
+                                <section data-vertical-align-top >
+				  <h3>Take-home points</h3>
+                                  <ul>
+                                    <li class="fragment roll-out"> Causal relations apparent at the measurement time-scale can be very far from true relations
+                                  </ul>
+                                </section>
 			</section>
 			<section>
 				<section>
@@ -430,6 +436,21 @@
 							Reasoning. 2017
 						</span>
 				</section>
+<section>
+  <h2>Take-home points</h2>
+  <ul>
+    
+    <li class="fragment roll-out">
+      Our algorithms nonparametrically recover equivalence classes from graphs at the measurement timescale
+    </li>    
+    <li class="fragment roll-out">
+      Surprisingly often, these equivalence classes are singletons
+    </li>
+    <li class="fragment roll-out">
+      When the undersampling rate is known, we can recover moderately large graphs (12+ nodes)
+    </li>
+    
+
 			</section>
                         <section>
                           <section>
@@ -530,6 +551,24 @@
                   <section data-vertical-align-top data-background-size="contain" data-background="figures/salience.png">
                     <h3>Salience Network (fMRI)</h3>
                   </section>
+<section data-vertical-align-top>
+  <h3>Take-home points</h3>
+  <ul>
+    <li class="fragment roll-out">
+      Leveraging the flexibility of ASP, we built a reverse solver $10^4\times$ faster than ASP-free approaches
+    </li>    
+    <li class="fragment roll-out">
+      We exploit graph SCC structure to handle 100-node graphs
+    </li>
+    <li class="fragment roll-out">
+      Method remains effective even in the presence of estimation noise
+    </li>    
+    <li class="fragment roll-out">
+      However, the problem remains computationally demanding
+    </li>
+  </ul>
+</section>                 
+                  
                         </section>
                         <section>
                           <section>
@@ -561,8 +600,8 @@
 			      <img style="width: 200px; box-shadow: 0px 0px 0px
                                           rgba(150, 150, 255,0.8);
                                           border:0;" src="figures/Joanne.png" alt="Joanne Wardell">
-			    </div>                            
-                            
+			    </div>
+
                           </section>
 
                           <section data-vertical-align-top>
@@ -586,6 +625,18 @@
 
                           <section data-vertical-align-top  data-background-size="contain" data-background="figures/du_gender.png">
                           </section>
+
+                          <section data-vertical-align-top >
+		    <h3>Take-home points</h3>
+                    <ul>
+                      <li class="fragment roll-out"> <b>Theory</b>: Leads to a counter-intuitive conclusion. Slower sampling can aid causal discovery, contrary to the standard correctly-held intuition to sample faster.
+                      <li class="fragment roll-out"> <b>Evidence</b>: Deliberate undersampling is empirically helpful in a significant percentage of cases.
+                        <ul>
+                          <li> The gains in these cases can be substantial.
+                         </ul>
+                      <li class="fragment roll-out"> <b>Hybrid approach</b>: Inspired by theory, experiments show comparable gains when combining slow and fast sampled data.
+                    </ul>
+                  </section>
                         </section>
                         <section>
                           <section>
